@@ -1,8 +1,15 @@
 import React, { Component } from "react";
-import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
 
+function Maps() {
+    
+
+    return (
+
+        <h2> Maps Page</h2>
+      )
+}
 
 
 
@@ -12,6 +19,4 @@ import Navbar from "../components/Navbar";
 
 
 
-
-
-export default Home;
+export default Maps;

@@ -1,22 +1,16 @@
-import React, { Component } from "react";
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
+import React from "react";
+import Navbar from "../components/Navbar"
 
 
 
 
-
-
-render() {
+  function Home() {
     return (
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <Hero>
 
-
-
-
-
+      <h2> Home Page</h2>
+    )
+  }
+  
+  
 
 export default Home;
