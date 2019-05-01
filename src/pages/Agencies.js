@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
 import Wrapper from "../components/Wrapper";
 import Cards from "../components/Card";
 import cards from "../Cards.json";
