@@ -1,25 +1,3 @@
-// import React, { Component } from "react";
-// import Navbar from "../components/Navbar";
-
-
-// function Maps() {
-    
-
-//     return (
-
-//         <h2> Maps Page</h2>
-//       )
-// }
-
-
-
-
-
-
-
-
-
-// export default Maps;
 
 import React, { Component } from "react";
 import API from "../utils/API";
@@ -27,63 +5,72 @@ import SidePanel from "../components/SidePanel";
 import InnerMap from "../components/InnerMap";
 
 class Maps extends Component {
-  // state = {
-  //   image: "",
-  //   match: false,
-  //   matchCount: 0
-  // };
+    constructor() {
+        super();
+        this.state = {
+          lat: 0,
+          long: 0
+        }
+      }
 
-  // // When the component mounts, load the next dog to be displayed
-  // componentDidMount() {
-  //   this.loadNextDog();
-  // }
+      componentWillMount() {
 
-  // handleBtnClick = event => {
-  //   // Get the data-value of the clicked button
-  //   const btnType = event.target.attributes.getNamedItem("data-value").value;
-  //   // Clone this.state to the newState object
-  //   // We'll modify this object and use it to set our component's state
-  //   const newState = { ...this.state };
+      }
+  // After the very first render, display the map in map div card
+  
+componentDidMount() {  
+    this.getLocation();    
+  }
+//   Get current location using geolocation
+   getLocation = () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(this.showPosition);
+          
+        } else { 
+            var x = document.getElementById("map");
+           x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    // current latitude and longitude is available in argument position
+    showPosition = (position) => { 
+           const latitude= position.coords.latitude ;
+           const longitude = position.coords.longitude;
+          this.setState({
+              lat:latitude,
+              long:longitude
+          });
+         
+          let map = new window.google.maps.Map(document.getElementById('map'), {
+            center: {lat: this.state.lat, lng: this.state.long},
+            zoom: 13,
+            mapTypeId: 'roadmap',
+          });
+          console.log("lat"+ this.state.latitude);
+          console.log("long"+ this.state.longitude);
+    }
 
-  //   if (btnType === "pick") {
-  //     // Set newState.match to either true or false depending on whether or not the dog likes us (1/5 chance)
-  //     newState.match = 1 === Math.floor(Math.random() * 5) + 1;
-
-  //     // Set newState.matchCount equal to its current value or its current value + 1 depending on whether the dog likes us
-  //     newState.matchCount = newState.match
-  //       ? newState.matchCount + 1
-  //       : newState.matchCount;
-  //   } else {
-  //     // If we thumbs down'ed the dog, we haven't matched with it
-  //     newState.match = false;
-  //   }
-  //   // Replace our component's state with newState, load the next dog image
-  //   this.setState(newState);
-  //   this.loadNextDog();
-  // };
-
-  // loadNextDog = () => {
-  //   API.getRandomDog()
-  //     .then(res =>
-  //       this.setState({
-  //         image: res.data.message
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
+ 
   render() {
     return (
-      <div>
-        {/* Calling SidePanel instance */}
-        <SidePanel >
-          I am sidepanel
-        </SidePanel >
-        {/* Calling InnerMap instance */}
-        <InnerMap >
-          I am map
-        </InnerMap>
-      </div>
+      <div className="container-fluid">
+         <div className="row">
+              <div className="col-sm-4">
+                 {/* Calling SidePanel instance */}
+                 <SidePanel >
+         
+                 </SidePanel >
+                
+              </div>
+              <div className="col-sm-8">
+                 {/* Map div */}
+                 {/* <InnerMap >
+          
+                 </InnerMap> */}
+                    <div className="card" id='map' >
+                    </div>
+              </div>
+            </div>
+       </div>
     );
   }
 }
