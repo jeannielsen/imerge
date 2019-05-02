@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 import SidePanel from "../components/SidePanel";
 // import InnerMap from "../components/InnerMap";
+import "../components/InnerMap/style.css";
 
 class Maps extends Component {
     constructor() {
@@ -63,11 +64,10 @@ componentDidMount() {
               </div>
               <div className="col-sm-8">
                  {/* Map div */}
-                 {/* <InnerMap >
-          
-                 </InnerMap> */}
-                    <div className="card" id='map' >
+                 {/* <InnerMap > */}
+                   <div className="card" id='map' >
                     </div>
+                    {/* </InnerMap>  */}
               </div>
             </div>
        </div>

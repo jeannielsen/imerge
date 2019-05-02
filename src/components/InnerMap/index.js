@@ -1,5 +1,5 @@
 // import React from "react";
-// // import CardBtn from "../CardBtn";
+// // // import CardBtn from "../CardBtn";
 // import "./style.css";
 
 
@@ -31,12 +31,12 @@
 
 //   render() {
 //     return (
-//       <div id='app'>
-//         <div id='map' />
-//       </div>
+// //       <div id='app'>
+// //         <div id='map' />
+// //       </div>
 //     );
-//   }
-// };
+//     }
+// }
 
 
 // export default InnerMap;
