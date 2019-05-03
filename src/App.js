@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/Agencies" component={Agencies} />
           <Route exact path="/Maps" component={Maps} />
           <Route exact path="/Translator" component={Translator} />
+         
         </Switch>
       </div>
     </Router>
