@@ -57,7 +57,7 @@ componentDidMount() {
          <div className="row">
               <div className="col-sm-4">
                  {/* Calling SidePanel instance */}
-                 <SidePanel >
+                 <SidePanel>
          
                  </SidePanel >
                 
