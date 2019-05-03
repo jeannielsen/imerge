@@ -1,5 +1,4 @@
 import React from "react";
-import Card from 'react-bootstrap/Button';
 import "./style.css";
 
 const Cards = props => (
