@@ -46,8 +46,14 @@ componentDidMount() {
             zoom: 13,
             mapTypeId: 'roadmap',
           });
-          console.log("lat"+ this.state.latitude);
-          console.log("long"+ this.state.longitude);
+          console.log("lat"+ this.state.lat);
+          console.log("long"+ this.state.long);
+
+        //  Setting marker at the current location
+          let marker = new window.google.maps.Marker({
+            map: map,
+            position: {lat: this.state.lat, lng: this.state.long},
+          });
     }
 
  
