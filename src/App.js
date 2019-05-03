@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/Maps" component={Maps} />
           <Route exact path="/News" component={News} />
           <Route exact path="/Translator" component={Translator} />
+         
         </Switch>
       </div>
     </Router>
