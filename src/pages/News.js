@@ -22,7 +22,7 @@ class News extends Component {
     if (s && s !== null) {
       return s;
     }
-    return '';
+    return 'unknown';
   };
 
   componentDidMount() {
@@ -36,7 +36,7 @@ class News extends Component {
       sources: '',
       domains: '',
       from: '2019-04-20',
-      to: '2019-05-02',
+      to: '2019-05-13',
       language: 'en',
       sortBy: 'relevancy',
       page: 2
@@ -54,19 +54,18 @@ class News extends Component {
           news: [],
           message: "No new headlines"
         })
-      )};
-  
+      )
+  };
 
-      render() {
-        return (
-          <Container>
-            <Row>
+
+  render() {
+    return (
+      <Container>
+        <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1 className="text-center">
                 <strong>News Headlines</strong>
               </h1>
-            </Jumbotron>
           </Col>
           <Col size="md-12">
           </Col>
@@ -74,28 +73,35 @@ class News extends Component {
         <Row>
           <Col size="md-12">
             <Card2 title="Results">
-            {this.state.news.length ? (
+              {this.state.news.length ? (
                 <List>
-                  {this.state.news.map(news => (
-                    <Article
-                      key={news.id}
-                      author={news.valueOf.author}
-                      title={news.valueOf.title}
-                      description={news.valueOf.description}
-                      url={news.valueOf.url}
-                      // urlToimage={news.valueOf.urlToImage}
-                      />
-                      ))}
-                    </List>
-                  ) : (
-                      <h2 className="text-center">{this.state.message}</h2>
-                    )} </Card2>
-                    </Col>
-                  </Row>
-                </Container>
-              );
-            }
-          }
-    
+                  {
+                    this.state.news.map(
+                      (newsItem, cnt) => {
+                        return (
+                          <Article
+                            key={cnt}
+                            author={newsItem.author}
+                            title={newsItem.title}
+                            description={newsItem.description}
+                            url={newsItem.url}
+                            source={newsItem.source}
+                          // urlToimage={news.urlToImage}
+                          />
+                        );
+                      }
+                    )
+                  }
+                </List>
+              ) : (
+                  <h2 className="text-center">{this.state.message}</h2>
+                )} </Card2>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+}
+
 
 export default News;
