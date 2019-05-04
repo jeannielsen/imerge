@@ -18,42 +18,8 @@ class SidePanel extends Component {
       mode:'categoryOptions'
     }
     this.handleRestaurantClick = this.handleRestaurantClick.bind(this);
-    this.addCuisines = this.addCuisines.bind(this);
+   
   }
- 
-  addCuisines= ()=> {
-    let cuisines = ['African', 'Asian', 'Barbecue', 'Brazilian',
-    'Breakfast', 'Cafe', 'Chinese', 'Hawaii',
-    'Doughnut', 'European', 'Fast food', 'Hamburger',
-    'Ice cream', 'Indian', 'Indonesian', 'Irish', 'Italian', 'Jamaican',
-    'Japanese', 'Jewish', 'Korean', 'Malaysian', 'Mediterranean',
-    'Mexican', 'Moroccan', 'Peruvian', 'Philippine',
-    'Polish', 'Portuguese', 'Russian', 'Sausage', 'Seafood', 'Soul food',
-    'Spanish Cuisine', 'Sri Lankan', 'Steak', 'Street food', 'Sushi', 'Swiss',
-    'Tapas', 'Thai', 'Tunisian', 'Turkish', 'Vegetarian', 'Vietnamese']
-    console.log("restaurant type executing");
-    for (var i = 0; i < cuisines.length; i++) {
-      var cuisineVal = cuisines[i].replace(/ /g,'').toLowerCase();
-
-      var li = document.createElement('li');
-      li.setAttribute("class", "cuisine");
-      // radiobutton
-      var checkbox = document.createElement('input');
-      checkbox.type = "radio";
-      checkbox.name = "cuisine";
-      checkbox.value = cuisineVal;
-      checkbox.id = cuisineVal;
-      //label for radio button
-      var label = document.createElement('label');
-      label.appendChild(checkbox);
-      label.appendChild(document.createTextNode(cuisines[i]));
-
-      li.appendChild(label);
-      document.getElementById("cuisine_types").appendChild(li);
-      // this.ul.appendChild(li);
-    }
-  }
- 
 
   // Function for handleRestaurantClick
   handleRestaurantClick() {
@@ -76,11 +42,7 @@ class SidePanel extends Component {
       <div className="card-header">
         {this.state.text}
       </div>
-       {/* main card body */}
-
-
-      
-
+       {/* main card body */}   
 
         {/* Using short circuit operator to render category options if mode =categoryoptions and hide foll JSX elements if mode !=categoryoptions*/}
      {
@@ -119,10 +81,8 @@ class SidePanel extends Component {
         <form>
             
             {/* <ul id="cuisine_types">  */}
-            <RestaurantOptionsPanel restaurantType ="Chinese"/>
-            <RestaurantOptionsPanel restaurantType ="Indian"/>
-            <RestaurantOptionsPanel restaurantType ="American"/>
-             {/* </ul>  */}
+            <RestaurantOptionsPanel />
+                     {/* </ul>  */}
           </form>
  
         </div>
@@ -130,7 +90,6 @@ class SidePanel extends Component {
     
           )
           }
-  {/* {this.addCuisines()}; */}
     </div>
   )
 }
