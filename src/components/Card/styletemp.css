@@ -1,8 +1,3 @@
-.container {
-  background-color: wheat;
-}
-
-
 .imageBox {
     position: relative;
     margin: 40px auto;
@@ -10,7 +5,7 @@
     overflow: hidden;
 }
 
-.imageBox h5
+.imageBox h3
 {
     position: absolute;
     margin: 0;
@@ -52,6 +47,7 @@
     display: inline-block;
 }
 
-ul {
-  list-style-type: none;
-  }
+.imageBox ul li: hover:nth-child(1)
+{
+    background: #3b5999;
+}

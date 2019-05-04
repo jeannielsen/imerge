@@ -1,0 +1,19 @@
+.card {
+  height: 450px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 300px;
+  font-size: 14px;
+}
+.card .img-container {
+width: 100%;
+overflow: hidden;
+}
+
+.card .img-container > img {
+width: 100%;
+}
+
+ul {
+list-style-type: none;
+}
