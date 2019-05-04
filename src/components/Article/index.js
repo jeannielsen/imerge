@@ -9,7 +9,7 @@ function Article({ author, title, description, url }) {
     <ListItem>
       <Row className="flex-wrap-reverse">
         <Col size="md-8">
-          <h3 className="font-italic">{title}</h3>
+          <h4 className="font-italic">{title}</h4>
 
           {author && <h6 className="font-italic">{author}</h6>}
         </Col>
@@ -19,11 +19,6 @@ function Article({ author, title, description, url }) {
               View
             </a>
           </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col size="md-6">
-          <p className="font-italic small">Written by: {author}</p>
         </Col>
       </Row>
       <Row>

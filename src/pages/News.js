@@ -22,7 +22,7 @@ class News extends Component {
     if (s && s !== null) {
       return s;
     }
-    return '';
+    return 'unknown';
   };
 
   componentDidMount() {
@@ -85,6 +85,7 @@ class News extends Component {
                             title={newsItem.title}
                             description={newsItem.description}
                             url={newsItem.url}
+                            source={newsItem.source}
                           // urlToimage={news.urlToImage}
                           />
                         );
