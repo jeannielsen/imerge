@@ -11,7 +11,7 @@ function Article({ author, title, description, url }) {
         <Col size="md-8">
           <h3 className="font-italic">{title}</h3>
 
-          {author && <h5 className="font-italic">{author}</h5>}
+          {author && <h6 className="font-italic">{author}</h6>}
         </Col>
         <Col size="md-4">
           <div className="btn-container">
@@ -27,7 +27,7 @@ function Article({ author, title, description, url }) {
         </Col>
       </Row>
       <Row>
-        <Col size="12 sm-4 md-2">
+        <Col size="md-12">
           <p className="font-italic small">Description: {description}</p>
         </Col>
       </Row>

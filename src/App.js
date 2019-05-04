@@ -6,6 +6,7 @@ import Maps from "./pages/Maps";
 import Navbar from "./components/Navbar";
 import Translator from "./pages/Translator";
 import News from "./pages/News";
+import { useTranslation } from 'react-i18next';
 
 
 function App() {
