@@ -4,10 +4,8 @@ import Home from "./pages/Home";
 import Agencies from "./pages/Agencies";
 import Maps from "./pages/Maps";
 import Navbar from "./components/Navbar";
-import Translator from "./pages/Translator";
 import News from "./pages/News";
-import { useTranslation } from 'react-i18next';
-
+import Translator from "./pages/Translator";
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewsAPI from '../utils/NewsAPI';
-import Jumbotron from "../components/Jumbotron";
 import Card2 from "../components/Card2";
 import Article from "../components/Article";
 import { List } from "../components/List";
