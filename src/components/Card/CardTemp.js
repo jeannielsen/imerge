@@ -1,14 +1,13 @@
 import React from "react";
 import "./style.css";
 
-const Cards = props => (
 
 <div class="container-fluid">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
                  <img class="card-img-top img-responsive" alt={props.name} src={props.image} />
-                     <h5>{props.name}</h5>
+                     <h3>{props.name}</h3>
                          <ul>
                              <li>{props.address}</li>
                             <li>{props.phone}</li>
@@ -18,6 +17,5 @@ const Cards = props => (
         </div>
     </div>
 </div>
-)
 
 export default Cards;
