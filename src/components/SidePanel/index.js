@@ -6,6 +6,7 @@ import { RestaurantOptionsPanel } from '../RestaurantOptionsPanel';
 import RestaurantImage from './Restaurant.jpg';
 import GroceryImage from './grocery-icon.png';
 import ImmigrationImage from './immigration-icon.png';
+import HealthCareImage from './hospital-icon.png';
 
 class SidePanel extends Component {
   constructor() {
@@ -14,46 +15,16 @@ class SidePanel extends Component {
       RestaurnatIcon: RestaurantImage,
       GroceryIcon: GroceryImage,
       ImmigrationIcon: ImmigrationImage,
+      HealthCareIcon: HealthCareImage,
       text: "Select a category you need",
       mode: 'categoryOptions'
     }
     this.handleRestaurantClick = this.handleRestaurantClick.bind(this);
-    this.addCuisines = this.addCuisines.bind(this);
+ immigration-offices-marker
+    this.handleImmigrationOfficeClick = this.handleImmigrationOfficeClick.bind(this);
+    this.handleHealthCareClick = this.handleHealthCareClick.bind(this);
+    
   }
-
-  addCuisines = () => {
-    let cuisines = ['African', 'Asian', 'Barbecue', 'Brazilian',
-      'Breakfast', 'Cafe', 'Chinese', 'Hawaii',
-      'Doughnut', 'European', 'Fast food', 'Hamburger',
-      'Ice cream', 'Indian', 'Indonesian', 'Irish', 'Italian', 'Jamaican',
-      'Japanese', 'Jewish', 'Korean', 'Malaysian', 'Mediterranean',
-      'Mexican', 'Moroccan', 'Peruvian', 'Philippine',
-      'Polish', 'Portuguese', 'Russian', 'Sausage', 'Seafood', 'Soul food',
-      'Spanish Cuisine', 'Sri Lankan', 'Steak', 'Street food', 'Sushi', 'Swiss',
-      'Tapas', 'Thai', 'Tunisian', 'Turkish', 'Vegetarian', 'Vietnamese']
-    console.log("restaurant type executing");
-    for (var i = 0; i < cuisines.length; i++) {
-      var cuisineVal = cuisines[i].replace(/ /g, '').toLowerCase();
-
-      var li = document.createElement('li');
-      li.setAttribute("class", "cuisine");
-      // radiobutton
-      var checkbox = document.createElement('input');
-      checkbox.type = "radio";
-      checkbox.name = "cuisine";
-      checkbox.value = cuisineVal;
-      checkbox.id = cuisineVal;
-      //label for radio button
-      var label = document.createElement('label');
-      label.appendChild(checkbox);
-      label.appendChild(document.createTextNode(cuisines[i]));
-
-      li.appendChild(label);
-      document.getElementById("cuisine_types").appendChild(li);
-      // this.ul.appendChild(li);
-    }
-  }
-
 
   // Function for handleRestaurantClick
   handleRestaurantClick() {
@@ -64,7 +35,7 @@ class SidePanel extends Component {
     //  this.addCuisines()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate() 
     // this.addCuisines();    
   }
 
@@ -72,7 +43,11 @@ class SidePanel extends Component {
 
     const categoryOptions = this.state.mode === 'categoryOptions';
     const RestaurantOptions = this.state.mode === 'Restaurant';
+    const ImmigrationOfficeDetails = this.state.mode === 'ImmigrationOffices';
+    const HealthCareDetails = this.state.mode === 'HealthCare';
+    
     return (
+
       <div className="card" >
         {/* Main card header */}
         <div className="card-header">
@@ -85,7 +60,7 @@ class SidePanel extends Component {
 
         {/*  Using short circuit operator to render category options if mode =categoryoptions and hide foll JSX elements if mode !=categoryoptions */}
         {
-          categoryOptions && (
+
             <div className="card-body">
               <div className="row" >
                 {/* subcards */}
@@ -109,13 +84,58 @@ class SidePanel extends Component {
               </div>
             </div>
 
-          )
-        }
 
-
-        {/* Using short circuit operator to render restaurant options if mode =restaurantoptions and hide foll JSX elements if mode !=restaurantoptions*/}
-        {
           RestaurantOptions && (
+immigration-offices-marker
+      <div className="card-body">
+        <div className = "row" >
+
+        <form>
+            
+            {/* <ul id="cuisine_types">  */}
+            <RestaurantOptionsPanel />
+                     {/* </ul>  */}
+          </form>
+ 
+        </div>
+      </div>
+    
+          )
+          }
+
+{/* Using short circuit operator to render nearby immigration offices if mode = 'ImmigrationOffices' */}
+     {
+          ImmigrationOfficeDetails && (
+      <div className="card-body">
+        <div className = "row" >
+
+        <h1> </h1>
+        </div>
+      </div>
+    
+          )
+          }
+
+
+{/* Using short circuit operator to render nearby healthcare services if mode = 'HealthCare' */}
+     {
+          HealthCareDetails && (
+      <div className="card-body">
+        <div className = "row" >
+
+        <h1> </h1>
+        </div>
+      </div>
+    
+          )
+          }
+
+
+
+
+    </div>
+  )
+}
             <div className="card-body">
               <div className="row" >
 

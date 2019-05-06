@@ -2,10 +2,18 @@ import axios from "axios";
 
 
 export default {
-
-  // 
-
- 
+  getRandomDog: function() {
+    return axios.get("https://dog.ceo/api/breeds/image/random");
+  },
+  getRestaurantAPI: function(latitude,longitude,ethnicity) {
+    console.log("Exec API");
+    
+    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=5000&type=restaurant&keyword="+ethnicity+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
+  },
+  getImmigrationOfficesApi: function(latitude,longitude) {
+    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=5000&type=local_government_office&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
+  }
+  
 };
 
 
