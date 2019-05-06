@@ -16,11 +16,11 @@ i18n
     resources: {
       en: {
         translation: {
-          "Welcome to React": "Welcome to React and react-i18next"
+          "Welcome to Imerge": "Bienvenido a Imerge"
         }
       }
     },
-    lng: "en",gti
+    lng: "en",
     fallbackLng: "en",
 
     interpolation: {
@@ -31,7 +31,7 @@ i18n
 function App() {
   const { t } = useTranslation();
 
-  console.log(t("Welcome to React"));
+  console.log(t("Welcome to Imerge"));
   return (
     // Router component initialized to virtual DOM
     <Router>
