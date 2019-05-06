@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import RestaurantImage from './Restaurant.jpg';
 import GroceryImage from './grocery-icon.png';
 import ImmigrationImage from './immigration-icon.png';
+import HealthCareImage from './hospital-icon.png';
 
 class SidePanel extends Component {
   constructor() {
@@ -14,11 +15,14 @@ class SidePanel extends Component {
       RestaurnatIcon: RestaurantImage,
       GroceryIcon: GroceryImage,
       ImmigrationIcon: ImmigrationImage,
+      HealthCareIcon: HealthCareImage,
       text: "Select a category you need",
       mode:'categoryOptions'
     }
     this.handleRestaurantClick = this.handleRestaurantClick.bind(this);
-   
+    this.handleImmigrationOfficeClick = this.handleImmigrationOfficeClick.bind(this);
+    this.handleHealthCareClick = this.handleHealthCareClick.bind(this);
+    
   }
 
   // Function for handleRestaurantClick
@@ -26,6 +30,22 @@ class SidePanel extends Component {
     this.setState({mode: 'Restaurant',
     text: 'Choose Restaurant Type'});
   //  this.addCuisines()
+  }
+
+
+  
+  // Function for handleImmigrationOfficeClick
+  handleImmigrationOfficeClick() {
+    this.setState({mode: 'ImmigrationOffices',
+    text: 'Click on the markers for nearby immigration office details'});
+    this.props.onClick("immigrationOffices");
+  //  this.addCuisines()
+  }
+
+  handleHealthCareClick(){
+    this.setState({mode: 'HealthCare',
+    text: 'Click on the markers for nearby HealthCare details'});
+    this.props.onClick("HealthCare");
   }
 
   componentDidUpdate() {  
@@ -36,6 +56,9 @@ class SidePanel extends Component {
     
     const categoryOptions = this.state.mode === 'categoryOptions';
     const RestaurantOptions = this.state.mode === 'Restaurant';
+    const ImmigrationOfficeDetails = this.state.mode === 'ImmigrationOffices';
+    const HealthCareDetails = this.state.mode === 'HealthCare';
+    
     return (
     <div className="card" >
       {/* Main card header */}
@@ -62,9 +85,16 @@ class SidePanel extends Component {
           </div>
         </div>
         <div className = "row" >
-        <a href = '#'>
+        <div className = "col-sm-6" >
+        <a href = '#' onClick = {this.handleImmigrationOfficeClick}>
           <CategoryOptionsPanel text = "Immigration offices nearby" image ={this.state.ImmigrationIcon}/>
           </a>
+          </div>
+          <div className = "col-sm-6" >
+        <a href = '#' onClick = {this.handleHealthCareClick}>
+          <CategoryOptionsPanel text = "HealthCare nearby" image ={this.state.HealthCareIcon}/>
+          </a>
+          </div>
         </div>
       </div>
     
@@ -90,6 +120,37 @@ class SidePanel extends Component {
     
           )
           }
+
+{/* Using short circuit operator to render nearby immigration offices if mode = 'ImmigrationOffices' */}
+     {
+          ImmigrationOfficeDetails && (
+      <div className="card-body">
+        <div className = "row" >
+
+        <h1> </h1>
+        </div>
+      </div>
+    
+          )
+          }
+
+
+{/* Using short circuit operator to render nearby healthcare services if mode = 'HealthCare' */}
+     {
+          HealthCareDetails && (
+      <div className="card-body">
+        <div className = "row" >
+
+        <h1> </h1>
+        </div>
+      </div>
+    
+          )
+          }
+
+
+
+
     </div>
   )
 }

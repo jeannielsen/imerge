@@ -1,5 +1,7 @@
 import React from "react";
-import MapsAPI from "../../utils/API"
+import MapsAPI from "../../utils/API";
+import Maps from "../../pages/Maps";
+import {RestaurantApiDataStateChange} from '../RestaurantApiDataStateChange';
 
 export class RestaurantOptionsPanel extends React.Component {
 
@@ -8,7 +10,8 @@ export class RestaurantOptionsPanel extends React.Component {
         super(props);
         this.state = {
           selectedRadioButton: "",
-          apidata: ""
+          restaurantApiData: [],
+          mapMode: 'currentLocationMarker'
         };
         this.handleRestaurantRadioClick = this.handleRestaurantRadioClick.bind(this);
       }
@@ -19,18 +22,27 @@ export class RestaurantOptionsPanel extends React.Component {
             selectedRadioButton: event.target.value
             
         });
+        // this.storeApiData();
         console.log("inside event radiovalue"+this.state.selectedRadioButton);
         // MapsAPI.getRestaurantAPI(47.840459479922835,-122.17669855717743,this.state.selectedRadioButton);
         
     }
+    // storeApiData(){
+    //   console.log("inside event radiovalue",this.state.selectedRadioButton);
+    // }
 
     componentDidUpdate(){
       MapsAPI.getRestaurantAPI(47.84039612005699,-122.17650237833391,this.state.selectedRadioButton).then(res =>
         // this.setState({
-        //   apidata: res.data
+          // restaurantApiData: res.data.results,
+          // mapMode: 'RestaurantsMarker'
         // })
+        // Maps.restaurantApiDataChangeState(res.data)
         
-        console.log("api data",res.data)
+        console.log("api data",res.data),
+
+        // data.results[0].geometry.location.lat
+        // console.log("api data lat",res.data.results[0].geometry.location.lat)
       )
       
       .catch(err => console.log(err));
@@ -38,6 +50,10 @@ export class RestaurantOptionsPanel extends React.Component {
     }
 
     render() {
+      
+      const restaurantTypeSelected = this.state.selectedRadioButton !== "";
+      const currentLocationMarker = this.state.mapMode === 'currentLocationMarker';
+      const RestaurantsMarker = this.state.mapMode === 'RestaurantsMarker';
         console.log("radiovalue"+this.state.selectedRadioButton);
     const cuisines = [ 'Asian', 'Barbecue', 'Breakfast', 'Cafe', 'Chinese',
      'European', 'Fast food', 'Hamburger',
@@ -64,6 +80,16 @@ export class RestaurantOptionsPanel extends React.Component {
     )
 });
       
-return<div>{radioButtons}</div>;
+return(
+  <div>
+<div>{radioButtons}</div>;
+
+{/* Using short circuit operator to render restaurantTypeSelected if selectedRadioButton !=empty string*/}
+ {/* { */}
+{/* // restaurantTypeSelected && (<RestaurantApiDataStateChange radioButtonSelected = {this.state.selectedRadioButton}/>)
+// } */}
+
+</div>
+)
     }
        }
