@@ -134,6 +134,11 @@ class SidePanel extends Component {
           )
           }
 
+{/* Using short circuit operator to render nearby immigration offices if mode = 'ImmigrationOffices' */}
+     {
+          ImmigrationOfficeDetails && (
+      <div className="card-body">
+        <div className = "row" >
 
 {/* Using short circuit operator to render nearby healthcare services if mode = 'HealthCare' */}
      {
