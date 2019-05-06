@@ -86,7 +86,7 @@ class Maps extends Component {
         // if (this.state.categorySelectionMode === "immigrationOffices")
         // {
            console.log("inside changecategorySelectionMode");
-           MapsAPI.getImmigrationOfficesApi(47.84039612005699,-122.17650237833391).then(res =>
+           MapsAPI.getImmigrationOfficesApi(this.state.lat,this.state.long).then(res =>
             // console.log("offices",res.data)
             this.setState({
               immigrationOfficesApiData: res.data.results
