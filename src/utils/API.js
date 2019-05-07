@@ -10,8 +10,8 @@ export default {
     
     return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=5000&type=restaurant&keyword="+ethnicity+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
   },
-  getImmigrationOfficesApi: function(latitude,longitude) {
-    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=5000&type=local_government_office&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
+  getApiData: function(latitude,longitude,searchType) {
+    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=10000&type="+searchType+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
   }
   
 };
