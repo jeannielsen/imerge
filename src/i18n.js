@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 // the translations
+
 const resources = {
   en: {
     translation: {
@@ -13,13 +14,24 @@ const resources = {
       "Translator":"Traductor",
       "Website":"Sitio web",
       "Resturants":"Los restaurantes",
-      "Grocery nearby": "Tienda de comestibles cerca",
-      "Immigration offices nearby":"Oficinas de inmigración cercanas",
-      "Healthcare nearby":"Cuidado de la salud cerca",
+      "Grocery Stores": "Tiendas de comestibles",
+      "Immigration Offices":"Oficinas de inmigracion",
+      "Healthcare":"Cuidado de la salud",
       "News Headlines":"Titulares de las noticias",
       "Results":"Resultados",
       "Translator Page":"Página de traductor",
-      "Welcome to Imerge":"Bienvenido a Imerge"
+      "Welcome to Imerge":"Bienvenido a Imerge",
+      "Post Offices":"Oficinas de correo",
+      "Banks":"Bancos",
+      "Schools":"Escuelas",
+      "Bus Stops":"Paradas de autobus",
+      "Airports":"Aeropuertos",
+      "Movie Theaters":"Salas de cine",
+      "Public Parks":"Parques públicos",
+      "Temples":"Templos",
+      "Churches":"Iglesias",
+      "Mosques":"Mezquitas",
+      "Agencies and Resources":"Agencias y Recursos",
     }
   }
 };

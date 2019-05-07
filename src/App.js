@@ -6,7 +6,6 @@ import Maps from "./pages/Maps";
 import Navbar from "./components/Navbar";
 import News from "./pages/News";
 import Translator from "./pages/Translator";
-import ReactDOM from "react-dom";
 // the hook
 import { useTranslation } from 'react-i18next';
 import "./i18n"

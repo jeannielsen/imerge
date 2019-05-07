@@ -4,18 +4,26 @@ import Card2 from "../components/Card2";
 import Article from "../components/Article";
 import { List } from "../components/List";
 import { Col, Row, Container } from "../components/Grid";
+import { withTranslation } from 'react-i18next';
 
-class News extends Component {
+
+
+class News extends Component  {
+  constructor({ t, i18n }){
+    super({t, i18n})
+    this.t = t
+  }
+
   state = {
     news: ['stuff'],
   };
 
-  // handleInputChange = event => {
-  //   const { language, value } = event.target;
-  //   this.setState({
-  //     [language]: value
-  //   });
-  // };
+  handleInputChange = event => {
+    const { language, value } = event.target;
+    this.setState({
+      [language]: value
+    });
+  };
 
   valueOf = (s) => {
     if (s && s !== null) {
@@ -56,22 +64,19 @@ class News extends Component {
       )
   };
 
-
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
-              <h1 className="text-center">
-                <strong>News Headlines</strong>
-              </h1>
+            <h2>{this.t('News Headlines')}</h2>
           </Col>
           <Col size="md-12">
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <Card2 title="Results">
+            <Card2 title={this.t("Results")}>
               {this.state.news.length ? (
                 <List>
                   {
@@ -103,4 +108,4 @@ class News extends Component {
 }
 
 
-export default News;
+export default withTranslation()(News);
