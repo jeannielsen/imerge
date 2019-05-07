@@ -3,7 +3,6 @@ import React, { Component } from "react";
  import {CategoryOptionsPanel} from '../CategoryOptionsPanel';
 import "./style.css";
  import {RestaurantOptionsPanel} from '../RestaurantOptionsPanel';
-// import "./style.css";
 import RestaurantImage from './Restaurant.jpg';
 import GroceryImage from './grocery-icon.png';
 import ImmigrationImage from './immigration-icon.png';
