@@ -6,3 +6,7 @@
 .category{
     border: solid thin lightcoral;
 }
+
+.GoBack{
+    text-align: right;
+}

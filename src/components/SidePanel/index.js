@@ -162,7 +162,16 @@ class SidePanel extends Component {
     <div className="card" >
       {/* Main card header */}
       <div className="card-header">
+      {
+          !categoryOptions && (
+            <div className = "GoBack">
+             <a  href="/Maps">Go back</a>
+          </div>
+          )
+        }
         {this.state.text}
+        
+        
       </div>
        {/* main card body */}   
 

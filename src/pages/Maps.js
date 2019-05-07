@@ -56,7 +56,7 @@ class Maps extends Component {
           let contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<div id="bodyContent">'+'<h3>'+officeApidata.name+'</h3>'+'<p>'+officeApidata.vicinity+'</p>'+
+            '<div id="bodyContent">'+'<h5>'+officeApidata.name+'</h5>'+'<p>'+officeApidata.vicinity+'</p>'+
             '<div> <a target="_blank" href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+'View Details</a> '+
             '</div>'+'<div> <a target="_blank" href="'+directionUrl+'">'+
             'Get Directions</a> '+
