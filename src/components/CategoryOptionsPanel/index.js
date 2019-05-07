@@ -6,13 +6,14 @@ import React from "react";
 export function CategoryOptionsPanel(props) {
     return (
         //  subcard 
-        <div className="card" style={{width: "10rem", height: "10rem"}}>
+        <div className="card category" style={{width: "7rem", height: "7rem"}}>
          {/* image  */}
         <img src={props.image} className="card-img-top" alt="RestauurantImage"/>
         {/* text */}
-        <div className="card-body">
+        <figcaption>{props.text}</figcaption>
+        {/* <div className="card-body">
           <p className="card-text">{props.text}</p>
-        </div>
+        </div> */}
       </div>
     
     )

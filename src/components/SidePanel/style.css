@@ -1,0 +1,12 @@
+.row{
+    margin: 20px;
+    
+}
+
+.category{
+    border: solid thin lightcoral;
+}
+
+.GoBack{
+    text-align: right;
+}
