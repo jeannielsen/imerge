@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Wrapper from "../components/Wrapper";
 import Cards from "../components/Card";
 import cards from "../Cards.json";
+import { useTranslation } from 'react-i18next';
 
 
 class Agencies extends Component {
