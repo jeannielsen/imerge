@@ -3,8 +3,10 @@ import React, { Component } from "react";
  import {CategoryOptionsPanel} from '../CategoryOptionsPanel';
 import "./style.css";
  import {RestaurantOptionsPanel} from '../RestaurantOptionsPanel';
+ import {GroceryOptionsPanel} from '../GroceryOptionsPanel';
 import RestaurantImage from './Restaurant.jpg';
 import GroceryImage from './grocery-icon.png';
+import EmbassyImage from './embassy-icon.png';
 import ImmigrationImage from './immigration-icon.png';
 import HealthCareImage from './hospital-icon.png';
 import PostOfficeImage from './PostOffice-icon.jpg';
@@ -15,7 +17,7 @@ import AirportImage from './airport-icon.png';
 import MovieImage from './movie-2-icon.jpg';
 import ParkImage from './park-icon.png';
 import TempleImage from './temple-2-icon.jpg';
-import ChurchImage from './church-icon.png';
+import ChurchImage from './church-icon.jpg';
 import MosqueImage from './mosque-icon.png';
 
 
@@ -25,6 +27,7 @@ class SidePanel extends Component {
     this.state = {
       RestaurnatIcon: RestaurantImage,
       GroceryIcon: GroceryImage,
+      EmbassyIcon: EmbassyImage,
       GovtOfficeIcon: ImmigrationImage,
       HealthCareIcon: HealthCareImage,
       PostOfficeIcon:PostOfficeImage,
@@ -41,6 +44,7 @@ class SidePanel extends Component {
       mode:'categoryOptions'
     }
     this.handleRestaurantClick = this.handleRestaurantClick.bind(this);
+    this.handleGroceryClick = this.handleGroceryClick.bind(this);
     this.handleImmigrationOfficeClick = this.handleImmigrationOfficeClick.bind(this);
     this.handleHealthCareClick = this.handleHealthCareClick.bind(this);
     this.handlePostOfficeClick = this.handlePostOfficeClick.bind(this);
@@ -53,22 +57,40 @@ class SidePanel extends Component {
     this.handleTempleClick = this.handleTempleClick.bind(this);
     this.handleChurchClick = this.handleChurchClick.bind(this);
     this.handleMosqueClick = this.handleMosqueClick.bind(this);
-
+    this.handlePassedRadioValue = this.handlePassedRadioValue.bind(this);
+    this.handleEmbassyClick = this.handleEmbassyClick.bind(this);
     
   }//End of constructor
 
   // Function for handleRestaurantClick
   handleRestaurantClick() {
-    this.setState({mode: 'Restaurant',
+    // this.props.onClick("restaurant");
+    this.setState({mode: 'restaurant',
     text: 'Choose Restaurant Type'});
-  //  this.addCuisines()
+    
+   }
+
+  handlePassedRadioValue(passedRadioValue){
+    console.log("inside child");
+    
+    this.props.onClick(this.state.mode,passedRadioValue);
+    
   }
 
+  handleGroceryClick() {
+    this.setState({mode: 'store',
+    text: 'Choose Grocery Type'});
+   }
 
-  
+   handleEmbassyClick(){
+    this.setState({mode: 'embassy',
+    text: 'Click on the markers for nearby Embassy details'});
+    this.props.onClick("embassy");
+  }
+ 
   // Function for handleImmigrationOfficeClick
   handleImmigrationOfficeClick() {
-    this.setState({mode: 'localGovernmentOffice',
+    this.setState({mode: 'local_government_office',
     text: 'Click on the markers for nearby Government office details'});
     this.props.onClick("local_government_office");
   //  this.addCuisines()
@@ -143,7 +165,8 @@ class SidePanel extends Component {
   render() {
     
     const categoryOptions = this.state.mode === 'categoryOptions';
-    const RestaurantOptions = this.state.mode === 'Restaurant';
+    const RestaurantOptions = this.state.mode === 'restaurant';
+    const GroceryOptions = this.state.mode === 'store';
     const ImmigrationOfficeDetails = this.state.mode === 'localGovernmentOffice';
     const HealthCareDetails = this.state.mode === 'hospital';
     const PostOfficeDetails = this.state.mode === 'postOffice';
@@ -168,14 +191,14 @@ class SidePanel extends Component {
              <a  href="/Maps">Go back</a>
           </div>
           )
-        }
+      }
         {this.state.text}
         
         
       </div>
        {/* main card body */}   
 
-        {/* Using short circuit operator to render category options if mode =categoryoptions and hide foll JSX elements if mode !=categoryoptions*/}
+        {/* Using short circuit operator to render category options if mode =categoryoptions and hide other JSX elements if mode !=categoryoptions*/}
      {
           categoryOptions && (
       <div className="card-body">
@@ -184,12 +207,12 @@ class SidePanel extends Component {
           {/* subcards */}
           <div className = "col-sm-6" >
           <a href = '#' onClick = {this.handleRestaurantClick}>
-            <CategoryOptionsPanel text = "Restaurants nearby" image ={this.state.RestaurnatIcon}/>
+            <CategoryOptionsPanel text = "Restaurants" image ={this.state.RestaurnatIcon}/>
          </a>
           </div>
           <div className = "col-sm-6" >
-          <a href = '#'>
-            <CategoryOptionsPanel text = "Grocery nearby" image ={this.state.GroceryIcon}/>
+          <a href = '#' onClick = {this.handleGroceryClick}>
+            <CategoryOptionsPanel text = "Grocery Shop" image ={this.state.GroceryIcon}/>
             </a>
           </div>
         </div>
@@ -199,12 +222,12 @@ class SidePanel extends Component {
         <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleImmigrationOfficeClick}>
-          <CategoryOptionsPanel text = "Immigration offices nearby" image ={this.state.GovtOfficeIcon}/>
+          <CategoryOptionsPanel text = "Government office" image ={this.state.GovtOfficeIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
-        <a href = '#' onClick = {this.handlePostOfficeClick}>
-          <CategoryOptionsPanel text = "Post Offices nearby" image ={this.state.PostOfficeIcon}/>
+        <a href = '#' onClick = {this.handleEmbassyClick}>
+          <CategoryOptionsPanel text = "Embassy" image ={this.state.EmbassyIcon}/>
           </a>
           </div>
         </div>
@@ -213,12 +236,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBankClick}>
-          <CategoryOptionsPanel text = "Bank nearby" image ={this.state.BankIcon}/>
+          <CategoryOptionsPanel text = "Bank" image ={this.state.BankIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleHealthCareClick}>
-          <CategoryOptionsPanel text = "HealthCare nearby" image ={this.state.HealthCareIcon}/>
+          <CategoryOptionsPanel text = "HealthCare" image ={this.state.HealthCareIcon}/>
           </a>
           </div>
         </div>
@@ -226,15 +249,15 @@ class SidePanel extends Component {
          {/* Fourth row */}
       <div className = "row" >
         <div className = "col-sm-6" >
-        <a href = '#' onClick = {this.handleSchoolClick}>
-          <CategoryOptionsPanel text = "School nearby" image ={this.state.SchoolIcon}/>
+        <a href = '#'onClick = {this.handleSchoolClick}>
+          <CategoryOptionsPanel text = "School" image ={this.state.SchoolIcon}/>
           </a>
           </div>
-          {/* <div className = "col-sm-6" >
-        <a href = '#' onClick = {this.handleHealthCareClick}>
-          <CategoryOptionsPanel text = "HealthCare nearby" image ={this.state.HospitalIcon}/>
+          <div className = "col-sm-6" >
+        <a href = '#' onClick = {this.handlePostOfficeClick}>
+          <CategoryOptionsPanel text = "Post Office" image ={this.state.PostOfficeIcon}/>
           </a>
-          </div>*/}
+          </div>
         </div> 
         <hr/>
 
@@ -242,12 +265,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBusStopClick}>
-          <CategoryOptionsPanel text = "Bus Stops nearby" image ={this.state.BusStopIcon}/>
+          <CategoryOptionsPanel text = "Bus Stop" image ={this.state.BusStopIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleAirportClick}>
-          <CategoryOptionsPanel text = "Airport nearby" image ={this.state.AirportIcon}/>
+          <CategoryOptionsPanel text = "Airport" image ={this.state.AirportIcon}/>
           </a>
           </div>
         </div>
@@ -256,12 +279,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleMovieClick}>
-          <CategoryOptionsPanel text = "Movie Theaters nearby" image ={this.state.MovieIcon}/>
+          <CategoryOptionsPanel text = "Movie Theater" image ={this.state.MovieIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleParkClick}>
-          <CategoryOptionsPanel text = "Parks nearby" image ={this.state.ParkIcon}/>
+          <CategoryOptionsPanel text = "Park" image ={this.state.ParkIcon}/>
           </a>
           </div>
         </div>
@@ -271,12 +294,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleTempleClick}>
-          <CategoryOptionsPanel text = "Temples nearby" image ={this.state.TempleIcon}/>
+          <CategoryOptionsPanel text = "Temple" image ={this.state.TempleIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleChurchClick}>
-          <CategoryOptionsPanel text = "Churches nearby" image ={this.state.ChurchIcon}/>
+          <CategoryOptionsPanel text = "Church" image ={this.state.ChurchIcon}/>
           </a>
           </div>
         </div>
@@ -285,7 +308,7 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleMosqueClick}>
-          <CategoryOptionsPanel text = "Mosques nearby" image ={this.state.MosqueIcon}/>
+          <CategoryOptionsPanel text = "Mosque" image ={this.state.MosqueIcon}/>
           </a>
           </div>
           </div>
@@ -296,24 +319,39 @@ class SidePanel extends Component {
           }
 
    
-      {/* Using short circuit operator to render restaurant options if mode =restaurantoptions and hide foll JSX elements if mode !=restaurantoptions*/}
+      {/* Using short circuit operator to render restaurant radio button options if mode =restaurantoptions */}
      {
-          RestaurantOptions && (
+          (RestaurantOptions) && (
       <div className="card-body">
         <div className = "row" >
 
         <form>
-            
-            {/* <ul id="cuisine_types">  */}
-            <RestaurantOptionsPanel />
-                     {/* </ul>  */}
-          </form>
+          <RestaurantOptionsPanel  onClick = {this.handlePassedRadioValue}/>
+        </form>
  
         </div>
       </div>
     
           )
           }
+
+
+ {/* Using short circuit operator to render Grocery store radio button options if mode =restaurantoptions */}
+ {
+          (GroceryOptions) && (
+      <div className="card-body">
+        <div className = "row" >
+
+        <form>
+          <GroceryOptionsPanel  onClick = {this.handlePassedRadioValue}/>
+        </form>
+ 
+        </div>
+      </div>
+    
+          )
+          }
+
 
 
 {/* Using short circuit operator to render nearby immigration offices if mode = 'ImmigrationOffices' */}

@@ -33,10 +33,12 @@ class Maps extends Component {
          
       //using ES6 For..of to get marker for each of the immigration offices
        for (let latLongValue of this.state.immigrationOfficesApiData) {
+        console.log("marker exec");
                 // console.log(latLongValue.geometry.location);
                 let marker = new window.google.maps.Marker({
                     map: map,
                     position: {lat: latLongValue.geometry.location.lat, lng: latLongValue.geometry.location.lng},
+                    
                 });
                 marker.addListener('click', e => {
                   this.createInfoWindow(e, map,latLongValue)
@@ -70,20 +72,30 @@ class Maps extends Component {
             content: contentString,
               position: { lat: e.latLng.lat(), lng: e.latLng.lng() }
           })
-        //   // infoWindow.addListener('domready', e => {
-        //   //   render(<InfoWindow />, document.getElementById('infoWindow'))
-        //   // })
+        
           infoWindow.open(map);
         }
 
       //Gets invoked on sidepanel category selection
-      changecategorySelectionMode(newCategory){
+      changecategorySelectionMode(newCategory, restaurantType){
+        console.log("inside parent");
+        console.log("newCategory",newCategory,"restaurantType",restaurantType);
         // this.setState({
         //   categorySelectionMode: newCategory
         // });
-        // if (this.state.categorySelectionMode === "immigrationOffices")
-        // {
-           console.log("inside changecategorySelectionMode");
+        if (newCategory === "restaurant" ||newCategory === "store")
+        {
+           console.log("inside if",newCategory,restaurantType);
+           MapsAPI.getRestaurantOrGroceryAPI(this.state.lat,this.state.long,newCategory,restaurantType).then(res =>
+            // console.log("offices",res.data)
+            this.setState({
+              immigrationOfficesApiData: res.data.results
+            })
+           )
+           .catch(err => console.log(err)); 
+      }
+      else{
+        console.log("inside else",newCategory,restaurantType);
            MapsAPI.getApiData(this.state.lat,this.state.long,newCategory).then(res =>
             // console.log("offices",res.data)
             this.setState({
@@ -92,6 +104,7 @@ class Maps extends Component {
            )
            .catch(err => console.log(err)); 
       }
+    }
 
   // After the very first render, display the map in map div card
   componentDidMount() {  

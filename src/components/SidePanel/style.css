@@ -4,9 +4,17 @@
 }
 
 .category{
-    border: solid thin lightcoral;
+    /* border: solid medium lightcoral; */
 }
 
 .GoBack{
     text-align: right;
+}
+
+button{
+    /* color: brown; */
+}
+
+img{
+    /* padding: 20px; */
 }

@@ -2,13 +2,10 @@ import axios from "axios";
 
 
 export default {
-  getRandomDog: function() {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getRestaurantAPI: function(latitude,longitude,ethnicity) {
+   getRestaurantOrGroceryAPI: function(latitude,longitude,searchType,ethnicity) {
     console.log("Exec API");
     
-    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=5000&type=restaurant&keyword="+ethnicity+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
+    return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=50000&type="+searchType+"&keyword="+ethnicity+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
   },
   getApiData: function(latitude,longitude,searchType) {
     return axios.get("/maps/api/place/nearbysearch/json?location=" + latitude+","+longitude+"&radius=10000&type="+searchType+"&key=AIzaSyB-Yiy5ruk26yFaZWv6RyR5CqZ5W7z1Pjk" )
