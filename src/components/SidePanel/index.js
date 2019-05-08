@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { translate } from 'react-i18next';
 import { withTranslation } from 'react-i18next';
 import {CategoryOptionsPanel} from '../CategoryOptionsPanel';
 import "./style.css";
@@ -157,16 +158,16 @@ class SidePanel extends Component {
     const TempleDetails = this.state.mode === 'temple';
     const ChurchDetails = this.state.mode === 'church';
     const MosqueDetails = this.state.mode === 'mosqe';
+    const { t } = this.props;
 
-    
     return (
-    <div className="card" >
+    <div className="card cardbox" >
       {/* Main card header */}
       <div className="card-header">
       {
           !categoryOptions && (
             <div className = "GoBack">
-             <a  href="/Maps">Go back</a>
+             <a  href="/Maps">{t("Go back")}</a>
           </div>
           )
         }
@@ -185,27 +186,27 @@ class SidePanel extends Component {
           {/* subcards */}
           <div className = "col-sm-6" >
           <a href = '#' onClick = {this.handleRestaurantClick}>
-            <CategoryOptionsPanel text = "Restaurants" image ={this.state.RestaurnatIcon}/>
+            <CategoryOptionsPanel text = {t("Restaurants")} image ={this.state.RestaurnatIcon}/>
          </a>
           </div>
           <div className = "col-sm-6" >
           <a href = '#'>
-            <CategoryOptionsPanel text = "Grocery Stores" image ={this.state.GroceryIcon}/>
+            <CategoryOptionsPanel text ={t("Grocery Stores")} image ={this.state.GroceryIcon}/>
             </a>
           </div>
         </div>
-        <hr/>
+      
 
         {/* Second row */}
         <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleImmigrationOfficeClick}>
-          <CategoryOptionsPanel text = "Immigration offices" image ={this.state.GovtOfficeIcon}/>
+          <CategoryOptionsPanel text = {t("Immigration Offices")} image ={this.state.GovtOfficeIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handlePostOfficeClick}>
-          <CategoryOptionsPanel text = "Post Offices" image ={this.state.PostOfficeIcon}/>
+          <CategoryOptionsPanel text = {t("Post Offices")} image ={this.state.PostOfficeIcon}/>
           </a>
           </div>
         </div>
@@ -214,12 +215,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBankClick}>
-          <CategoryOptionsPanel text = "Banks" image ={this.state.BankIcon}/>
+          <CategoryOptionsPanel text ={t("Banks")} image ={this.state.BankIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleHealthCareClick}>
-          <CategoryOptionsPanel text = "HealthCare" image ={this.state.HealthCareIcon}/>
+          <CategoryOptionsPanel text = {t("HealthCare")} image ={this.state.HealthCareIcon}/>
           </a>
           </div>
         </div>
@@ -228,7 +229,7 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleSchoolClick}>
-          <CategoryOptionsPanel text = "Schools" image ={this.state.SchoolIcon}/>
+          <CategoryOptionsPanel text ={t("Schools")} image ={this.state.SchoolIcon}/>
           </a>
           </div>
           {/* <div className = "col-sm-6" >
@@ -237,18 +238,18 @@ class SidePanel extends Component {
           </a>
           </div>*/}
         </div> 
-        <hr/>
+    
 
          {/* Fifth row */}
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBusStopClick}>
-          <CategoryOptionsPanel text = "Bus Stops" image ={this.state.BusStopIcon}/>
+          <CategoryOptionsPanel text ={t("Bus Stops")} image ={this.state.BusStopIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleAirportClick}>
-          <CategoryOptionsPanel text = "Airports" image ={this.state.AirportIcon}/>
+          <CategoryOptionsPanel text = {t("Airports")} image ={this.state.AirportIcon}/>
           </a>
           </div>
         </div>
@@ -257,27 +258,26 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleMovieClick}>
-          <CategoryOptionsPanel text = "Movie Theaters" image ={this.state.MovieIcon}/>
+          <CategoryOptionsPanel text = {t("Movie Theaters")} image ={this.state.MovieIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleParkClick}>
-          <CategoryOptionsPanel text = "Parks" image ={this.state.ParkIcon}/>
+          <CategoryOptionsPanel text = {t("Public Parks")} image ={this.state.ParkIcon}/>
           </a>
           </div>
         </div>
-        <hr/>
 
          {/* Seventh row */}
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleTempleClick}>
-          <CategoryOptionsPanel text = "Temples" image ={this.state.TempleIcon}/>
+          <CategoryOptionsPanel text ={t("Temples")} image ={this.state.TempleIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleChurchClick}>
-          <CategoryOptionsPanel text = "Churches" image ={this.state.ChurchIcon}/>
+          <CategoryOptionsPanel text = {t("Churches")} image ={this.state.ChurchIcon}/>
           </a>
           </div>
         </div>
@@ -286,7 +286,7 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleMosqueClick}>
-          <CategoryOptionsPanel text = "Mosques" image ={this.state.MosqueIcon}/>
+          <CategoryOptionsPanel text = {t("Mosques")} image ={this.state.MosqueIcon}/>
           </a>
           </div>
           </div>
@@ -335,7 +335,6 @@ class SidePanel extends Component {
       <div className="card-body">
         <div className = "row" >
 
-        <h1> </h1>
         </div>
       </div>
     

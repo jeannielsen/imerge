@@ -8,14 +8,11 @@ function Card2({ icon, title, children }) {
     <div className="card mt-4">
       <div className="card-header">
         <h3>
-          {/* strong means bold */}
           <strong>
-            {/* html type formatting for icon fed from API search that displays on home page, aria-hidden="true" tells assistive technology to ignore*/}
             <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
           </strong>
         </h3>
       </div>
-      {/* The card body displays the children */}
       <div className="card-body">{children}</div>
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import Wrapper from "../components/Wrapper";
-import Cards from "../components/Card";
-import cards from "../Cards.json";
+import Wrapper from "../../components/Wrapper";
+import Cards from "../../components/Card";
+import cards from "../../Cards.json";
+import "./style.css";
+
 import { withTranslation } from 'react-i18next';
 
 
@@ -19,6 +21,7 @@ class Agencies extends Component {
     return (
       <div>
         <h1>{this.t('Agencies and Resources')}</h1>
+        
         <Wrapper>
           {this.state.cards.map(card => (
             <Cards

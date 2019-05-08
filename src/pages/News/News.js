@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import NewsAPI from '../utils/NewsAPI';
-import Card2 from "../components/Card2";
-import Article from "../components/Article";
-import { List } from "../components/List";
-import { Col, Row, Container } from "../components/Grid";
+import NewsAPI from '../../utils/NewsAPI';
+import Card2 from "../../components/Card2";
+import Article from "../../components/Article";
+import { List } from "../../components/List";
+import { Col, Row, Container } from "../../components/Grid";
 import { withTranslation } from 'react-i18next';
 
 

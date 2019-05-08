@@ -54,4 +54,24 @@
 
 ul {
   list-style-type: none;
-  }
+}
+
+.one_card {
+    border: 1px solid #cccccc;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+    background-color: tan;
+}
+
+.image_box {
+
+}
+
+
+.card-img-top {
+    vertical-align: bottom;
+    width: auto;
+    height: 50px;
+}
+

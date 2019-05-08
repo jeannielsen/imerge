@@ -1,11 +1,11 @@
 
 import React, { Component } from "react";
 // import API from "../utils/API";
-import SidePanel from "../components/SidePanel";
+import SidePanel from "../../components/SidePanel";
 // import InnerMap from "../components/InnerMap";
-import "../components/InnerMap/style.css";
-import MapsAPI from "../utils/API";
-import InfoWindow from "../components/InfoWindow";
+import "../../components/InnerMap/style.css";
+import MapsAPI from "../../utils/API";
+import InfoWindow from "../../components/InfoWindow";
 
 class Maps extends Component {
   constructor() {

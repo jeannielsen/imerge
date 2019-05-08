@@ -3,8 +3,9 @@ import  "./style.css";
 
 function TranslateFrame(props) {
     return (
-        
-        <iframe src={props.translateSrc}></iframe>
+        <div id="iframe_box">
+            <iframe src={props.translateSrc}></iframe>
+        </div>
     );
 }
 

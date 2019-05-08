@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TranslateFrame from '../components/translate-frame';
+import TranslateFrame from '../../components/translate-frame';
 import { useTranslation } from 'react-i18next';
 
 function Translator() {
