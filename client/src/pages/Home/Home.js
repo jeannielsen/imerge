@@ -1,13 +1,16 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import "./home.css";
+import BackgroundImage from './immigrants.png';
 
 function Home() {
   const { t } = useTranslation();
   return (
-    <React.Fragment>
+    
+    <div>
       <h1>{t('Home Page')}</h1>
-    </React.Fragment>
+      <img  src= {BackgroundImage} alt="not found"/>
+    </div>
   )
 }
 
