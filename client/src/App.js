@@ -12,15 +12,13 @@ import "./i18n"
 
 
 function App() {
-  const { t } = useTranslation();
+
 
   return (
     // Router component initialized to virtual DOM
     <Router>
       <div>
-        
         <Navbar />
-        
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Agencies" component={Agencies} />

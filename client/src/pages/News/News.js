@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NewsAPI from '../../utils/NewsAPI';
 import Card2 from "../../components/Card2";
 import Article from "../../components/Article";
+import Button from 'react-bootstrap/Button';
 import { List } from "../../components/List";
 import { Col, Row, Container } from "../../components/Grid";
 import { withTranslation } from 'react-i18next';
@@ -70,6 +71,9 @@ class News extends Component  {
         <Row>
           <Col size="md-12">
             <h2>{this.t('News Headlines')}</h2>
+               {/* <ButtonToolbar>
+                  <Button variant="info">English</Button>
+               </ButtonToolbar> */}
           </Col>
           <Col size="md-12">
           </Col>
