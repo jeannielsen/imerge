@@ -4,9 +4,10 @@ import "./style.css";
 const Navbar = props => (
 
     <header>
-        <h2>Imerge</h2>
+        
         <nav>
-            <ul>
+        <h2 className = "name">Imerge</h2>
+            <ul className="links mb-1">
                 <li> <a href="/">Home</a></li>
                 <li> <a href="/Agencies">Agencies</a></li>
                 <li> <a href="/Maps">Maps</a></li>

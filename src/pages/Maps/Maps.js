@@ -1,11 +1,7 @@
-
 import React, { Component } from "react";
-// import API from "../utils/API";
 import SidePanel from "../../components/SidePanel";
-// import InnerMap from "../components/InnerMap";
 import "../../components/InnerMap/style.css";
 import MapsAPI from "../../utils/API";
-import InfoWindow from "../../components/InfoWindow";
 
 class Maps extends Component {
   constructor() {
@@ -17,49 +13,57 @@ class Maps extends Component {
       immigrationOfficesApiData:[],
       healthCareApiData:[]
     }
-    // this.restaurantApiDataChangeState = this.restaurantApiDataChangeState.bind(this);
+    
     this.changecategorySelectionMode = this.changecategorySelectionMode.bind(this);
+   
   }//End of constructor
 
   componentDidUpdate(){  
-  // if (this.state.categorySelectionMode === "immigrationOffices")
-    // {
-       console.log("exec immigration event",this.state.immigrationOfficesApiData);
+         console.log("exec immigration event",this.state.immigrationOfficesApiData);
       let map = new window.google.maps.Map(document.getElementById('map'), {
             center: {lat: this.state.lat, lng: this.state.long},
             zoom: 13,
             mapTypeId: 'roadmap'
       });
-         
-      //using ES6 For..of to get marker for each of the immigration offices
-       for (let latLongValue of this.state.immigrationOfficesApiData) {
-        console.log("marker exec");
-                // console.log(latLongValue.geometry.location);
-                let marker = new window.google.maps.Marker({
-                    map: map,
-                    position: {lat: latLongValue.geometry.location.lat, lng: latLongValue.geometry.location.lng},
-                    
-                });
-                marker.addListener('click', e => {
-                  this.createInfoWindow(e, map,latLongValue)
-                  console.log("name",latLongValue.name)
-                  
-                })
-              }// }End of for..of loop
-
+               
+      //using map function to get marker for each of the immigration offices
+               const newImmigrationOfficesApiArray = (this.state.immigrationOfficesApiData).map(eachValue => {
+                
+               console.log("marker exec");
+                          let marker = new window.google.maps.Marker({
+                           map: map,
+                           position: {lat: eachValue.geometry.location.lat, lng: eachValue.geometry.location.lng},
+                           
+                       });
+                       console.log("place-id",eachValue.place_id);
+       
+                       MapsAPI.getCid(eachValue.place_id).then(res =>
+                       marker.addListener('click', e => {
+                           this.createInfoWindow(e, map,eachValue,res.data.result.url)
+                           console.log("-------name",eachValue.name);
+                           console.log("-------url",res.data.result.url);
+                                                     
+                         })
+                                
+                        )
+                        .catch(err => console.log(err)); 
+                     
+                     })// }End of for..of loop
+                 
         }//End of componentDidUpdate()
 
         // Marker info window
-        createInfoWindow(e, map, officeApidata) {
+        createInfoWindow(e, map, apiData,url) {
           // url for map directions
-          let directionUrl = 'https://www.google.com/maps/dir/'+this.state.lat+','+this.state.long+'/'+officeApidata.name+','+officeApidata.vicinity+'/@'+officeApidata.geometry.location.lat+','+officeApidata.geometry.location.lng+'/';
-
+          console.log("************inside infowindow",url);
+          let directionUrl = 'https://www.google.com/maps/dir/'+this.state.lat+','+this.state.long+'/'+apiData.name+','+apiData.vicinity+'/@'+apiData.geometry.location.lat+','+apiData.geometry.location.lng+'/';
+          console.log("url"+url);
           // Marker infowindow Content
           let contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<div id="bodyContent">'+'<h5>'+officeApidata.name+'</h5>'+'<p>'+officeApidata.vicinity+'</p>'+
-            '<div> <a target="_blank" href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+'View Details</a> '+
+            '<div id="bodyContent">'+'<h5>'+apiData.name+'</h5>'+'<p>'+apiData.vicinity+'</p>'+
+            '<div> <a target="_blank" href='+url+'>'+'View Details</a> '+
             '</div>'+'<div> <a target="_blank" href="'+directionUrl+'">'+
             'Get Directions</a> '+
             '</div>'+
@@ -80,10 +84,7 @@ class Maps extends Component {
       changecategorySelectionMode(newCategory, restaurantType){
         console.log("inside parent");
         console.log("newCategory",newCategory,"restaurantType",restaurantType);
-        // this.setState({
-        //   categorySelectionMode: newCategory
-        // });
-        if (newCategory === "restaurant" ||newCategory === "store")
+              if (newCategory === "restaurant" ||newCategory === "store")
         {
            console.log("inside if",newCategory,restaurantType);
            MapsAPI.getRestaurantOrGroceryAPI(this.state.lat,this.state.long,newCategory,restaurantType).then(res =>
