@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { translate } from 'react-i18next';
 import { withTranslation } from 'react-i18next';
 import {CategoryOptionsPanel} from '../CategoryOptionsPanel';
 import "./style.css";
@@ -209,12 +208,12 @@ class SidePanel extends Component {
           {/* subcards */}
           <div className = "col-sm-6" >
           <a href = '#' onClick = {this.handleRestaurantClick}>
-            <CategoryOptionsPanel text = "Restaurants" image ={this.state.RestaurnatIcon}/>
+            <CategoryOptionsPanel text = {t("Restaurants")} image ={this.state.RestaurnatIcon}/>
          </a>
           </div>
           <div className = "col-sm-6" >
           <a href = '#' onClick = {this.handleGroceryClick}>
-            <CategoryOptionsPanel text = "Grocery Shop" image ={this.state.GroceryIcon}/>
+            <CategoryOptionsPanel text = {t("Grocery Stores")} image ={this.state.GroceryIcon}/>
             </a>
           </div>
         </div>
@@ -224,12 +223,12 @@ class SidePanel extends Component {
         <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleImmigrationOfficeClick}>
-          <CategoryOptionsPanel text = "Government office" image ={this.state.GovtOfficeIcon}/>
+          <CategoryOptionsPanel text = {t("Government office")} image ={this.state.GovtOfficeIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleEmbassyClick}>
-          <CategoryOptionsPanel text = "Embassy" image ={this.state.EmbassyIcon}/>
+          <CategoryOptionsPanel text = {t("Embassy")} image ={this.state.EmbassyIcon}/>
           </a>
           </div>
         </div>
@@ -238,12 +237,12 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBankClick}>
-          <CategoryOptionsPanel text = "Bank" image ={this.state.BankIcon}/>
+          <CategoryOptionsPanel text = {t("Banks")} image ={this.state.BankIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleHealthCareClick}>
-          <CategoryOptionsPanel text = "HealthCare" image ={this.state.HealthCareIcon}/>
+          <CategoryOptionsPanel text = {t("HealthCare")} image ={this.state.HealthCareIcon}/>
           </a>
           </div>
         </div>
@@ -252,17 +251,16 @@ class SidePanel extends Component {
       <div className = "row" >
         <div className = "col-sm-6" >
         <a href = '#'onClick = {this.handleSchoolClick}>
-          <CategoryOptionsPanel text = "School" image ={this.state.SchoolIcon}/>
+          <CategoryOptionsPanel text = {t("Schools")} image ={this.state.SchoolIcon}/>
           </a>
           </div>
           <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handlePostOfficeClick}>
-          <CategoryOptionsPanel text = "Post Office" image ={this.state.PostOfficeIcon}/>
+          <CategoryOptionsPanel text = {t("Post Offices")} image ={this.state.PostOfficeIcon}/>
           </a>
           </div>
         </div> 
     
-
          {/* Fifth row */}
       <div className = "row" >
         <div className = "col-sm-6" >

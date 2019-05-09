@@ -3,7 +3,6 @@ import Wrapper from "../../components/Wrapper";
 import Cards from "../../components/Card";
 import cards from "../../Cards.json";
 import "./style.css";
-
 import { withTranslation } from 'react-i18next';
 
 

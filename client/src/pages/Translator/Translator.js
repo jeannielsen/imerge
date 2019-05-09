@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import TranslateFrame from '../../components/translate-frame';
 import { useTranslation } from 'react-i18next';
 

@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
+import { withTranslation } from 'react-i18next';
+
 
 const Navbar = props => (
-
+    
     <header>
         <h2>Imerge</h2>
         <nav>
@@ -19,4 +21,5 @@ const Navbar = props => (
 
 
 
-export default Navbar;
+// export default Navbar;
+export default withTranslation()(Navbar);

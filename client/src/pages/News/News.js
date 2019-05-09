@@ -15,7 +15,7 @@ class News extends Component  {
   }
 
   state = {
-    news: ['stuff'],
+    news: [''],
   };
 
   handleInputChange = event => {
