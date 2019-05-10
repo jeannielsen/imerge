@@ -6,9 +6,9 @@ import React from "react";
 export function CategoryOptionsPanel(props) {
     return (
         //  subcard 
-        <div className="card category" style={{width: "8rem", height: "8rem"}}>
+        <div className="card category " >
          {/* image  */}
-        <img src={props.image} className="card-img-top" alt="RestauurantImage"/>
+        <img src={props.image} className="card-img-top" alt="RestaurantImage"/>
         {/* text */}
         <figcaption>{props.text}</figcaption>
         {/* <div className="card-body">
@@ -19,3 +19,5 @@ export function CategoryOptionsPanel(props) {
     )
 }
 // export default CategoryOptions;
+
+

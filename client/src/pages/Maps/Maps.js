@@ -152,12 +152,12 @@ class Maps extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-sm-3">
             {/* Calling SidePanel instance */}
             <SidePanel onClick = {this.changecategorySelectionMode}>
             </SidePanel >
           </div>
-          <div className="col-sm-8">
+          <div className="col-sm-9">
             {/* Map div */}
             {/* <InnerMap > */}
             <div className="card" id='map' >

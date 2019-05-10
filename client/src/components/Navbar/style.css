@@ -10,9 +10,9 @@ nav ul li {
     
 }
 
-h2 {
+/* h2 {
     /* text-align: center; */
-}
+/* } */ 
 
 
 nav li a {
@@ -22,10 +22,18 @@ nav li a {
 .links{
     text-align: end;
 }
-
+/* 
 body{
-    background-color: cadetblue;
-}
+    /* background-color: wheat; */
+/* } */ 
 li:hover{
     background-color: lightslategray;
+}
+.icon{
+    width:12%;
+}
+h1{
+    color: beige;
+    
+    
 }
