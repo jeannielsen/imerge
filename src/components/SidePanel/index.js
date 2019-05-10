@@ -205,7 +205,7 @@ class SidePanel extends Component {
           categoryOptions && (
       <div className="card-body">
       {/* First row */}
-        <div className = "row" >
+        <div className = "row categoryOptionsButton" >
           {/* subcards */}
           <div className = "col-sm-6" >
           <a href = '#' onClick = {this.handleRestaurantClick}>
@@ -221,8 +221,8 @@ class SidePanel extends Component {
       
 
         {/* Second row */}
-        <div className = "row" >
-        <div className = "col-sm-6" >
+        <div className = "row categoryOptionsButton" >
+        <div className = "col-sm-6 ">
         <a href = '#' onClick = {this.handleImmigrationOfficeClick}>
           <CategoryOptionsPanel text = "Government office" image ={this.state.GovtOfficeIcon}/>
           </a>
@@ -235,7 +235,7 @@ class SidePanel extends Component {
         </div>
       
       {/* Third row */}
-      <div className = "row" >
+      <div className = "row categoryOptionsButton" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBankClick}>
           <CategoryOptionsPanel text = "Bank" image ={this.state.BankIcon}/>
@@ -249,7 +249,7 @@ class SidePanel extends Component {
         </div>
 
          {/* Fourth row */}
-      <div className = "row" >
+      <div className = "row categoryOptionsButton" >
         <div className = "col-sm-6" >
         <a href = '#'onClick = {this.handleSchoolClick}>
           <CategoryOptionsPanel text = "School" image ={this.state.SchoolIcon}/>
@@ -264,7 +264,7 @@ class SidePanel extends Component {
     
 
          {/* Fifth row */}
-      <div className = "row" >
+      <div className = "row categoryOptionsButton" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleBusStopClick}>
           <CategoryOptionsPanel text ={t("Bus Stops")} image ={this.state.BusStopIcon}/>
@@ -278,7 +278,7 @@ class SidePanel extends Component {
         </div>
 
          {/* Sixth row */}
-      <div className = "row" >
+      <div className = "row categoryOptionsButton" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleMovieClick}>
           <CategoryOptionsPanel text = {t("Movie Theaters")} image ={this.state.MovieIcon}/>
@@ -292,7 +292,7 @@ class SidePanel extends Component {
         </div>
 
          {/* Seventh row */}
-      <div className = "row" >
+      <div className = "row categoryOptionsButton" >
         <div className = "col-sm-6" >
         <a href = '#' onClick = {this.handleTempleClick}>
           <CategoryOptionsPanel text ={t("Temples")} image ={this.state.TempleIcon}/>
@@ -306,8 +306,8 @@ class SidePanel extends Component {
         </div>
 
          {/* Eighth row */}
-      <div className = "row" >
-        <div className = "col-sm-6" >
+      <div className = "row categoryOptionsButton" >
+        <div className = "col-sm-6 " >
         <a href = '#' onClick = {this.handleMosqueClick}>
           <CategoryOptionsPanel text = {t("Mosques")} image ={this.state.MosqueIcon}/>
           </a>

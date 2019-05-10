@@ -24,8 +24,16 @@ nav li a {
 }
 
 body{
-    background-color: cadetblue;
+    /* background-color: wheat; */
 }
 li:hover{
     background-color: lightslategray;
+}
+.icon{
+    width:12%;
+}
+h1{
+    color: beige;
+    
+    
 }

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./style.css";
+import Icon from './icon.png';
 
 const Navbar = props => (
 
     <header>
         
         <nav>
-        <h2 className = "name">Imerge</h2>
+            {/* <img className="icon" src={Icon} alt="not found"></img> */}
+        <h1>Imerge</h1>
             <ul className="links mb-1">
                 <li> <a href="/">Home</a></li>
                 <li> <a href="/Agencies">Agencies</a></li>
